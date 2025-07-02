@@ -1,3 +1,4 @@
+import "@fontsource/poppins";
 import './App.css';
 import Navbar from './components/Navbar';
 import About from './components/About';
@@ -20,7 +21,7 @@ function App() {
             <h1>Hi, I’m Rudra Singh</h1>
             <p style={{color: "black"}}
             >Senior Web UI Designer & Front‑end Developer specializing in clean, accessible, and impactful digital experiences.</p>
-            <a href="#projects" className="cta-button">Explore My Work →</a>
+            <a href="#projects" className="cta-button">Explore my work →</a>
           </div>
         </div>
       </header>
