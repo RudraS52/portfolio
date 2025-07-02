@@ -7,7 +7,7 @@ import project2 from '../assets/project2.jpg';
 
 const projects = [
   {
-    id: 1,
+    id: 2,
     title: "Product Comparison App",
     description: "A responsive React app that compares product features side-by-side with interactive filtering.",
     image: project2,
@@ -15,7 +15,7 @@ const projects = [
     liveLink: "https://your-live-site.com"
   },
   {
-    id: 2,
+    id: 1,
     title: "Portfolio Website",
     description: "My personal portfolio built with React and styled with modern UI practices.",
     image: project1,
