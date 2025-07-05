@@ -16,15 +16,15 @@ const certifications = [
   },
   {
     id: 2,
-    title: 'Frontend Developer Award',
-    issuer: 'freeCodeCamp',
+    title: 'Software Engineer Award',
+    issuer: 'C sharp Corner',
     date: 'April 2024',
     image: cert2
   },
   {
     id: 3,
     title: 'Developer Hackathon Participation',
-    issuer: 'C# Corner',
+    issuer: 'C sharp Corner',
     date: 'March 2024',
     image: cert3
   }
