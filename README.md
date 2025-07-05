@@ -21,8 +21,8 @@ This portfolio showcases the projects I have built using modern web technologies
 - Citibank UI Enhancement Project (Cross-Browser, DataTables)
 
 ## 📞 Contact
-- LinkedIn: [Your LinkedIn Profile](#)
-- Email: [Your Email Address](#)
+- LinkedIn: [https://www.linkedin.com/in/web-developer-rp-singh/](#)
+- Email: [rpsingh.developer@gmail.com](#)
 
 ---
 
