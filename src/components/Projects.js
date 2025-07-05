@@ -3,6 +3,7 @@ import './Projects.css';
 import project1 from '../assets/project1.jpg';
 import project2 from '../assets/project2.jpg';
 import project4 from '../assets/project4.png';
+import project6 from '../assets/project6.jpeg';
 import project3 from '../assets/project-placeholder.png'; // Placeholder image for PIMCO project
 
 const projectList = [
@@ -40,6 +41,24 @@ const projectList = [
   liveLink: "http://dph-india.com/",
   codeLink: "#",
   note: "Website fully developed and designed independently."
+},
+{
+  title: "Maestro Marpai Health TPA – Legacy System Modernization",
+  image: project6, // You can use a placeholder image if no screenshot is available
+  description: "Worked on a legacy healthcare project using Classic ASP and SQL Server. Resolved cross-browser compatibility issues, upgraded deprecated VBScript to JavaScript, and fixed UI layout problems. Focused on ensuring system stability across modern browsers including Internet Explorer, Chrome, Firefox, and Edge.",
+  tech: ["Classic ASP", "SQL Server", "VBScript", "JavaScript", "Cross-Browser Compatibility", "UI Fixes"],
+  liveLink: "#", // You can keep it "#" if the project is private
+  codeLink: "#", // Source code is not required for client projects
+  note: "Worked on a client-secured legacy healthcare project. Source code is confidential."
+},
+{
+  title: "Citibank Project – UI Enhancement and Integration",
+  image: project3, // Use a placeholder image if no screenshot is available
+  description: "Enhanced the UI for the Citibank web application by developing dynamic JavaScript-driven forms, integrating login and logout pages, and implementing datatables for advanced filtering and sorting. Focused on improving browser compatibility and UI responsiveness across devices.",
+  tech: ["HTML5", "JavaScript", "DataTables", "Responsive Design", "Cross-Browser Compatibility"],
+  liveLink: "#", // Project is private
+  codeLink: "#",
+  note: "Worked on a client-secured system; source code and assets are confidential."
 }
 ];
 
