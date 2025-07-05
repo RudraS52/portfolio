@@ -1,12 +1,13 @@
 import "@fontsource/poppins";
 import './App.css';
+import Resume from './components/Resume';
 import Navbar from './components/Navbar';
 import About from './components/About';
 import Projects from './components/Projects';
 import Blog from './components/Blog';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
-import Portfolio from './components/Portfolio';
+
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 function App() {
@@ -29,10 +30,9 @@ function App() {
       <main className="main-content">
         <About />
         <Projects />  {/* You can add thumbnails here */}    
-        <Certifications /> {/* You can add thumbnails here */}
-        <Portfolio /> {/* You can add thumbnails here */}
-         
+        <Certifications /> {/* You can add thumbnails here */}         
         <Blog /> {/* You can add thumbnails here */}
+        <Resume />
         <Contact />
       </main>
 
