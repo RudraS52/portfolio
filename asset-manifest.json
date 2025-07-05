@@ -1,10 +1,12 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.289b3b32.css",
-    "main.js": "/portfolio/static/js/main.ece45a2a.js",
+    "main.css": "/portfolio/static/css/main.22d70506.css",
+    "main.js": "/portfolio/static/js/main.d9ae938e.js",
     "static/js/453.acca0757.chunk.js": "/portfolio/static/js/453.acca0757.chunk.js",
+    "static/media/project-placeholder.png": "/portfolio/static/media/project-placeholder.5f3760b8325d658fb0fc.png",
     "static/media/certificate2.png": "/portfolio/static/media/certificate2.97e20900d711effbb6aa.png",
     "static/media/certificate1.png": "/portfolio/static/media/certificate1.0dde511fea8a27f16071.png",
+    "static/media/project4.png": "/portfolio/static/media/project4.5835746ef8c9599d32a9.png",
     "static/media/project2.jpg": "/portfolio/static/media/project2.923c621d8765e6d86aae.jpg",
     "static/media/rudra_profile.jpg": "/portfolio/static/media/rudra_profile.70887fe6d2050856cbdb.jpg",
     "static/media/project1.jpg": "/portfolio/static/media/project1.2ab38bf00893215597c4.jpg",
@@ -16,12 +18,12 @@
     "static/media/poppins-latin-ext-400-normal.woff": "/portfolio/static/media/poppins-latin-ext-400-normal.7e12786771ac4a8e6a5c.woff",
     "static/media/poppins-latin-ext-400-normal.woff2": "/portfolio/static/media/poppins-latin-ext-400-normal.d7c074a9c34fe9785f69.woff2",
     "index.html": "/portfolio/index.html",
-    "main.289b3b32.css.map": "/portfolio/static/css/main.289b3b32.css.map",
-    "main.ece45a2a.js.map": "/portfolio/static/js/main.ece45a2a.js.map",
+    "main.22d70506.css.map": "/portfolio/static/css/main.22d70506.css.map",
+    "main.d9ae938e.js.map": "/portfolio/static/js/main.d9ae938e.js.map",
     "453.acca0757.chunk.js.map": "/portfolio/static/js/453.acca0757.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.289b3b32.css",
-    "static/js/main.ece45a2a.js"
+    "static/css/main.22d70506.css",
+    "static/js/main.d9ae938e.js"
   ]
 }
