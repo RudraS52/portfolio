@@ -26,14 +26,6 @@ This portfolio showcases the projects I have built using modern web technologies
 
 ---
 
-## ✅ Why This is Better:
-- Gives a **quick project summary**  
-- Shows **technology stack at a glance**  
-- Looks **polished and complete** when recruiters visit  
-- Saves you from writing long descriptions individually for each repo
-
----
-
 ### 👉 If you only want the live link, your version is perfectly fine:
 ```markdown
 ## 🚀 Live Portfolio
