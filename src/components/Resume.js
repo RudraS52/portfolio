@@ -8,7 +8,7 @@ const Resume = () => {
       <p>You can download or view my resume below:</p>
 
 
-    <a href="./resume.pdf" download className="download-btn">
+    <a href="./Rudra_SE_Developer.pdf" download className="download-btn">
   Download Resume
 </a>
 
