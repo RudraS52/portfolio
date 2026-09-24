@@ -1,3 +1,4 @@
+import React from 'react';
 import "@fontsource/poppins";
 import './App.css';
 import Resume from './components/Resume';
@@ -7,7 +8,9 @@ import Projects from './components/Projects';
 import Blog from './components/Blog';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
-import AIAssistant from "./components/AIAssistant";
+
+// ✅ Path aligned with your exact directory: AIAssistants folder -> AIAssistant.js file
+import AiAssistant from "./components/AIAssistants/AIAssistant";
 
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
@@ -18,11 +21,11 @@ function App() {
 
       <header className="hero">
         <div className="hero-content">
-          {/* <img src="/profile.jpg" alt="Rudra Pratap Singh" className="hero-photo" /> */}
           <div className="hero-text">
             <h1>Hi, I’m Rudra Singh</h1>
-            <p style={{color: "black"}}
-            >Senior Web UI Designer & Front‑end Developer specializing in clean, accessible, and impactful digital experiences.</p>
+            <p style={{ color: "black" }}>
+              Senior Web UI Designer & Front‑end Developer specializing in clean, accessible, and impactful digital experiences.
+            </p>
             <a href="#projects" className="cta-button">Explore my work →</a>
           </div>
         </div>
@@ -30,25 +33,32 @@ function App() {
 
       <main className="main-content">
         <About />
-        <Projects />  {/* You can add thumbnails here */}    
-        <Certifications /> {/* You can add thumbnails here */}         
-        <Blog /> {/* You can add thumbnails here */}
+        <Projects />    
+        <Certifications />         
+        <Blog />
         <Resume />
         <Contact />
       </main>
-<AIAssistant />
-      <footer className="footer">
-  <div className="footer-content">
-    <p>©{new Date().getFullYear()} Rudra Singh | All rights reserved.</p>
-    <div className="footer-socials">
-      <a href="https://github.com/RudraS52" target="_blank" rel="noopener noreferrer"><FaGithub size={20} /></a>
-<a href="https://www.linkedin.com/in/web-developer-rp-singh/" target="_blank" rel="noopener noreferrer"><FaLinkedin size={20} /></a>
-<a href="mailto:rpsingh.developer@gmail.com"><FaEnvelope size={20} /></a>
-</div>
-  </div>
-  
-</footer>
 
+      {/* ✅ Renders the AI Assistant directly onto the viewport layouts */}
+      <AiAssistant />
+
+      <footer className="footer">
+        <div className="footer-content">
+          <p>© {new Date().getFullYear()} Rudra Singh | All rights reserved.</p>
+          <div className="footer-socials">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <FaGithub size={20} />
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin size={20} />
+            </a>
+            <a href="mailto:rpsingh.developer@gmail.com">
+              <FaEnvelope size={20} />
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
