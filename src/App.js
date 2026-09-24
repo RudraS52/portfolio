@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import Blog from './components/Blog';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
+import AIAssistant from "./components/AIAssistant";
 
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
@@ -35,7 +36,7 @@ function App() {
         <Resume />
         <Contact />
       </main>
-
+<AIAssistant />
       <footer className="footer">
   <div className="footer-content">
     <p>©{new Date().getFullYear()} Rudra Singh | All rights reserved.</p>
@@ -45,6 +46,7 @@ function App() {
 <a href="mailto:rpsingh.developer@gmail.com"><FaEnvelope size={20} /></a>
 </div>
   </div>
+  
 </footer>
 
     </div>

@@ -4,6 +4,7 @@ import project1 from '../assets/project1.jpg';
 import project2 from '../assets/project2.jpg';
 import project4 from '../assets/project4.png';
 import project6 from '../assets/project6.jpeg';
+import project7 from '../assets/project7.png';
 import project3 from '../assets/project-placeholder.png'; // Placeholder image for PIMCO project
 
 const projectList = [
@@ -59,7 +60,19 @@ const projectList = [
   liveLink: "#", // Project is private
   codeLink: "#",
   note: "Worked on a client-secured system; source code and assets are confidential."
+},
+{
+
+title: "Job Tracker – React Job Application Management App",
+image: project7, // Use your Job Tracker screenshot
+description: "Built a React-based job application tracker with Firebase Authentication, protected routes, reusable components, and a Kanban-style dashboard for managing applications across Applied, Interview, Offer, and Rejected stages. Implemented CRUD operations with React state management and localStorage persistence, including add, edit, delete, and status-change functionality.",
+tech: ["React.js", "JavaScript", "React Hooks", "React Router", "Firebase Authentication", "LocalStorage", "CSS3", "CRUD"],
+liveLink: "#", // Add live deployment URL when hosted
+codeLink: "https://github.com/RudraS52/job-tracker-app",
+note: "Frontend-focused React project demonstrating authentication, protected routes, component-based architecture, state management, CRUD operations, and browser-based data persistence."
+
 }
+
 ];
 
 const Projects = () => {
