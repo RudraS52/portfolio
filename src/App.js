@@ -47,10 +47,10 @@ function App() {
         <div className="footer-content">
           <p>© {new Date().getFullYear()} Rudra Singh | All rights reserved.</p>
           <div className="footer-socials">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/RudraS52" target="_blank" rel="noopener noreferrer">
               <FaGithub size={20} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/web-developer-rp-singh/" target="_blank" rel="noopener noreferrer">
               <FaLinkedin size={20} />
             </a>
             <a href="mailto:rpsingh.developer@gmail.com">
