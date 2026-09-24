@@ -13,7 +13,7 @@ const blogPosts = [
     id: 2,
     title: "A Beginner’s Guide to Models, Views, and Controller Action Methods",
     summary: "Introduction To Model, View, Controller And Types Of Controller Action Methods",
-    image: "https://www.c-sharpcorner.com/UploadFile/BlogImages/06052022112602AM/Introduction%20to%20Model%20View%20Controller%20and%20Types%20of%20Controller%20Action%20Method%20in%20ASP%20NET%20MVC%20Core.png",
+    image: "https://cdn.c-sharpcorner.com/uploadfile/blogimages/06102022081043am/introduction-to-model-view-controller-and-types-of-controller-action-methods.webp",
     link: "https://www.c-sharpcorner.com/blogs/introduction-to-model-view-controller-and-types-of-controller-action"
   },
   {
