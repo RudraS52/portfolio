@@ -22,9 +22,9 @@ function App() {
       <header className="hero">
         <div className="hero-content">
           <div className="hero-text">
-            <h1>Hi, I’m Rudra Singh</h1>
-            <p style={{ color: "black" }}>
-              Senior Web UI Designer & Front‑end Developer specializing in clean, accessible, and impactful digital experiences.
+            <h1 style={{ letterSpacing: "0.5px !important" }}>Hi, I'm Rudra Singh</h1>
+            <p style={{ color: "black", letterSpacing: "0.5px" }}>
+            Frontend Developer specializing in React.js, JavaScript, responsive UI development, and ASP.NET MVC/.NET.
             </p>
             <a href="#projects" className="cta-button">Explore my work →</a>
           </div>

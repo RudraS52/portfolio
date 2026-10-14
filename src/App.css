@@ -13,21 +13,58 @@ body {
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
   background-color: #f4f4f4;
+  letter-spacing: 0.4px;
 }
 /* Hero Section */
 .hero {
   display: flex;
   align-items: center;
-  padding: 80px 20px;
+  padding: 25px 25px;
   background: #f4f4f4;
+  min-height: auto;
 }
+
+
+
+
+
+
+
+
+
+
+
+/* Tighten the spacing around the hero content */
+.hero h1 {
+  margin: 0 0 16px;
+}
+
+.hero p {
+  margin: 0 auto 24px;
+  line-height: 1.6;
+}
+
+/* Reduce the gap before the Introduction section */
+.introduction {
+  padding: 20px 5.5%;
+}
+
+
+
+
+
+
+
+
+
+
 
 .hero-content {
   max-width: 1000px;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 1.8rem;
+  gap: 1rem;
 }
 
 .hero-photo {
@@ -105,6 +142,7 @@ p {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  letter-spacing: 0.5px;
 }
 
 .App-link {
