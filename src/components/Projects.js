@@ -4,7 +4,6 @@ import './Projects.css';
 
 import project1 from '../assets/project1.jpg';
 import project2 from '../assets/project2.jpg';
-import project3 from '../assets/project-placeholder.png';
 import project4 from '../assets/project4.png';
 import project6 from '../assets/project6.jpeg';
 import project7 from '../assets/project7.png';
