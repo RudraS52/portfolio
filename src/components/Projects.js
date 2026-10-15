@@ -8,11 +8,14 @@ import project3 from '../assets/project-placeholder.png';
 import project4 from '../assets/project4.png';
 import project6 from '../assets/project6.jpeg';
 import project7 from '../assets/project7.png';
+import missionControlDashboard from '../assets/Mission-Control-Dashboard.png';
+import pimco from '../assets/pimco.png';
+import citibank from '../assets/citibank.png';
 
 const projectList = [
   {
     title: 'Mission Control Dashboard',
-    image: project3, // Replace with your actual MCD screenshot
+    image: missionControlDashboard,
     description:
       'Built a responsive React dashboard that displays live International Space Station (ISS) location data through REST API integration. Implemented reusable components, loading and error states, automatic data refresh, orbital visualization, and telemetry charts.',
     tech: [
@@ -24,6 +27,7 @@ const projectList = [
       'useRef',
       'Recharts',
       'Responsive Design',
+      '3D Visualization',
     ],
     liveLink:
       'https://rudras52.github.io/mission-control-dashboard/',
@@ -47,24 +51,7 @@ const projectList = [
     liveLink: 'https://rudras52.github.io/job-tracker-app/',
     codeLink: 'https://github.com/RudraS52/job-tracker-app',
   },
-  {
-    title: 'Product Comparison App',
-    image: project2,
-    description:
-      'Created a responsive React application for comparing products side by side. Focused on reusable UI elements, interactive state management, clean layouts, and a consistent experience across desktop and mobile devices.',
-    tech: [
-      'React',
-      'JavaScript',
-      'useState',
-      'CSS',
-      'Flexbox',
-      'GitHub Pages',
-      'Responsive Design',
-    ],
-    liveLink: 'https://rudras52.github.io/product-comparison-app/',
-    codeLink: 'https://github.com/RudraS52/project-comparison-app',
-  },
-  {
+   {
     title: 'Preserva Wellness E-Commerce',
     image: project1,
     description:
@@ -83,23 +70,81 @@ const projectList = [
     codeLink: '',
   },
   {
-    title: 'PIMCO Asset Management Web Portal',
-    image: project3,
+    title: 'Product Comparison App',
+    image: project2,
     description:
-      'Worked on a secure asset-management web portal, converting wireframes into responsive interfaces and contributing to UI enhancements and application development within a .NET Core MVC architecture.',
+      'Created a responsive React application for comparing products side by side. Focused on reusable UI elements, interactive state management, clean layouts, and a consistent experience across desktop and mobile devices.',
+    tech: [
+      'React',
+      'JavaScript',
+      'useState',
+      'CSS',
+      'Flexbox',
+      'GitHub Pages',
+      'Responsive Design',
+    ],
+    liveLink: 'https://rudras52.github.io/product-comparison-app/',
+    codeLink: 'https://github.com/RudraS52/project-comparison-app',
+  },
+ 
+  {
+    title: 'PIMCO Asset Management Web Portal',
+    image: pimco,
+    description:
+      'Developed and optimized data-intensive enterprise UI screens featuring configurable tables, multi-level filtering, pagination, and detailed record views with multiple tabs. Worked with Razor partial views, SQL Server data models, and complex ASP.NET Core MVC controllers and business logic. Also contributed to role-based user access provisioning and automated email triggers across time zones.',
+    tech: [
+  'HTML5',
+  'CSS3',
+  'JavaScript',
+  'jQuery',
+  'Bootstrap',
+  'C#',
+  'ASP.NET Core 7 MVC',
+  'Razor Views',
+  'Partial Views',
+  'SQL Server',
+  'LINQ',
+  'AWS S3',
+],
+    liveLink: '',
+    codeLink: '',
+    note: 'Client project. Source code and production access are confidential.',
+  },
+  
+  {
+    title: 'Maestro Marpai Health TPA',
+    image: project6,
+    description:
+      'Resolved legacy browser-compatibility issues by replacing VBScript-based functionality with JavaScript to ensure reliable data rendering and improve application usability. Troubleshot issues where data failed to display correctly and updated client-side functionality to support more consistent browser behavior.',
+    tech: [
+      'Classic ASP',
+      'SQL Server',
+      'VBScript',
+      'JavaScript',
+      'UI Fixes',
+      'Cross-Browser Compatibility',
+    ],
+    liveLink: '',
+    codeLink: '',
+    note: 'Confidential client project. Source code is not publicly available.',
+  },
+  {
+    title: 'Citibank – UI Enhancement',
+    image: citibank,
+    description:
+      'Enhanced a client-facing web application by developing JavaScript-driven forms, designing login and logout interfaces, and implementing jQuery DataTables features for data sorting, filtering, and responsive tabular displays. Focused on usability and cross-browser compatibility.',
     tech: [
       'HTML5',
       'CSS3',
       'JavaScript',
       'jQuery',
-      'Bootstrap',
-      'Razor',
-      '.NET Core 7',
-      'AWS',
+      'DataTables',
+      'Responsive Design',
+      'Cross-Browser Compatibility',
     ],
     liveLink: '',
     codeLink: '',
-    note: 'Client project. Source code and access are confidential.',
+    note: 'Confidential client project. Source code is not publicly available.',
   },
   {
     title: 'DPH Software Services',
@@ -116,42 +161,9 @@ const projectList = [
       'SEO',
       'Responsive Design',
     ],
-    liveLink: 'http://dph-india.com/',
+    liveLink: 'http://www.dph.co.in',
     codeLink: '',
     note: 'Originally developed independently.',
-  },
-  {
-    title: 'Maestro Marpai Health TPA',
-    image: project6,
-    description:
-      'Maintained and modernized a legacy healthcare application by resolving browser compatibility issues, updating deprecated VBScript functionality, and fixing UI layout problems across browsers.',
-    tech: [
-      'Classic ASP',
-      'SQL Server',
-      'VBScript',
-      'JavaScript',
-      'UI Fixes',
-      'Cross-Browser Compatibility',
-    ],
-    liveLink: '',
-    codeLink: '',
-    note: 'Confidential client project. Source code is not public.',
-  },
-  {
-    title: 'Citibank – UI Enhancement',
-    image: project3,
-    description:
-      'Enhanced a client web application by implementing JavaScript-driven forms, login and logout interfaces, and DataTables features for filtering and sorting, with a focus on usability and browser compatibility.',
-    tech: [
-      'HTML5',
-      'JavaScript',
-      'DataTables',
-      'Responsive Design',
-      'Cross-Browser Compatibility',
-    ],
-    liveLink: '',
-    codeLink: '',
-    note: 'Confidential client project. Source code is not public.',
   },
 ];
 
