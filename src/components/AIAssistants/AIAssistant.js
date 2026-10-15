@@ -5,121 +5,90 @@ import './AIAssistant.css';
 const AiAssistant = () => {
   const [isOpen, setIsOpen] = useState(true);
 
+  // Stores the conversation displayed in the chat window.
   const [messages, setMessages] = useState([
     {
       sender: 'bot',
-      text: 'Hi! I’m Rudra’s AI Portfolio Assistant. 🚀 Ask me about his full development experience, technical skills, projects, certifications, blogs, or how to contact him!'
+      text: 'Hi! I’m Rudra’s AI Portfolio Assistant. 🚀 Ask me about his development experience, technical skills, projects, certifications, blogs, or contact details!'
     }
   ]);
 
   const [input, setInput] = useState('');
+
+  // Tracks whether the backend is waiting for an AI response.
+  const [isLoading, setIsLoading] = useState(false);
+
   const chatEndRef = useRef(null);
 
+  // Scroll to the latest message whenever the conversation changes.
   useEffect(() => {
     if (isOpen) {
       chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [messages, isOpen]);
+  }, [messages, isOpen, isLoading]);
 
-  const handleSend = () => {
+  // Sends the visitor's message to the secure Vercel backend.
+  const handleSend = async () => {
     const currentInput = input.trim();
-    if (!currentInput) return;
 
+    // Ignore empty messages and duplicate submissions.
+    if (!currentInput || isLoading) return;
+
+    // Display the visitor's message immediately.
     setMessages(prev => [
       ...prev,
       { sender: 'user', text: currentInput }
     ]);
+
     setInput('');
+    setIsLoading(true);
 
-    let botReply =
-      "I'm not quite sure about that exact phrase. Try asking about my 'projects', 'skills', 'certifications', 'blog', 'resume', or 'contact' details! 😊";
+    try {
+      // The backend calls OpenAI using the server-side API key.
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message: currentInput })
+      });
 
-    const lowerInput = currentInput.toLowerCase();
+      const data = await response.json();
 
-    if (
-      lowerInput.includes('hello') ||
-      lowerInput.includes('hi') ||
-      lowerInput.includes('hey')
-    ) {
-      botReply = "Hello! 👋 I'm here to help you navigate Rudra's professional profile. What would you like to know about his engineering and design background?";
-    } else if (
-      lowerInput.includes('project') ||
-      lowerInput.includes('work') ||
-      lowerInput.includes('build')
-    ) {
-      botReply =
-        "Rudra has built various professional applications. Here are the core highlights:\n\n" +
-        "📱 1. Product Comparison App: A responsive React application for comparing smartphone metrics.\n\n" +
-        "🔑 2. Employee Verification API: An ASP.NET Core Web API project using C#.\n\n" +
-        "🍳 3. Recipe Search App: A JavaScript frontend for searching recipes.\n\n" +
-        "💡 Type 'comparison app' or 'verification api' for more details!";
-    } else if (lowerInput.includes('comparison app')) {
-      botReply = "The Product Comparison App uses React, CSS, and JavaScript to present product metrics in a responsive layout.";
-    } else if (
-      lowerInput.includes('verification api') ||
-      lowerInput.includes('.net') ||
-      lowerInput.includes('c#')
-    ) {
-      botReply = "The Employee Verification API is an ASP.NET Core project written in C#. Refer to the project's actual source code for its implemented endpoints and validation logic.";
-    } else if (
-      lowerInput.includes('skill') ||
-      lowerInput.includes('techno') ||
-      lowerInput.includes('language')
-    ) {
-      botReply =
-        "Rudra's technical skills include:\n\n" +
-        "⚡ Frontend: React.js, JavaScript (ES6+), HTML5, CSS3, responsive UI.\n\n" +
-        "⚙️ Web development: ASP.NET Core MVC, C#, and REST API integration.\n\n" +
-        "🛠️ Tools: Git, GitHub, GitHub Pages, and GitLab CI/CD.";
-    } else if (
-      lowerInput.includes('certif') ||
-      lowerInput.includes('award') ||
-      lowerInput.includes('course')
-    ) {
-      botReply = "You can explore the Certifications section of Rudra's portfolio to review his listed credentials and achievements.";
-    } else if (
-      lowerInput.includes('blog') ||
-      lowerInput.includes('post') ||
-      lowerInput.includes('write')
-    ) {
-      botReply = "Explore the Blog section of Rudra's portfolio for his published technical articles and development notes.";
-    } else if (
-      lowerInput.includes('resume') ||
-      lowerInput.includes('experience') ||
-      lowerInput.includes('history')
-    ) {
-      botReply = "Rudra has 8+ years of web development experience, including frontend/UI development and ASP.NET MVC/.NET-based enterprise applications. His resume provides further details.";
-    } else if (
-      lowerInput.includes('contact') ||
-      lowerInput.includes('hire') ||
-      lowerInput.includes('email') ||
-      lowerInput.includes('linkedin')
-    ) {
-      botReply =
-        "Let's connect!\n\n" +
-        "📧 Email: rpsingh.developer@gmail.com\n\n" +
-        "💼 LinkedIn: https://www.linkedin.com/in/web-developer-rp-singh/\n\n" +
-        "🐙 GitHub: https://github.com/rudras52";
-    } else if (lowerInput.includes('time')) {
-      botReply = `The current time is ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}. ⏰`;
-    } else if (
-      lowerInput.includes('bye') ||
-      lowerInput.includes('thank') ||
-      lowerInput.includes('cool')
-    ) {
-      botReply = "Thank you for visiting Rudra's portfolio! Feel free to connect using the contact details. 👋";
-    }
+      // Handle errors returned by the backend.
+      if (!response.ok) {
+        throw new Error(data.error || 'Unable to get an AI response.');
+      }
 
-    setTimeout(() => {
+      // Display the AI-generated answer.
       setMessages(prev => [
         ...prev,
-        { sender: 'bot', text: botReply }
+        {
+          sender: 'bot',
+          text: data.reply || 'Sorry, I could not generate a response.'
+        }
       ]);
-    }, 500);
+    } catch (error) {
+      // Show a friendly message if the request fails.
+      console.error('Chat request failed:', error);
+
+      setMessages(prev => [
+        ...prev,
+        {
+          sender: 'bot',
+          text: 'Sorry, I could not connect to the AI assistant. Please try again in a moment.'
+        }
+      ]);
+    } finally {
+      // Re-enable the input after success or failure.
+      setIsLoading(false);
+    }
   };
 
+  // Send the message when the visitor presses Enter.
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
       handleSend();
     }
   };
@@ -146,7 +115,7 @@ const AiAssistant = () => {
             </button>
           </div>
 
-          <div className="ai-chat-messages">
+          <div className="ai-chat-messages" aria-live="polite">
             {messages.map((msg, idx) => (
               <div
                 key={idx}
@@ -164,6 +133,16 @@ const AiAssistant = () => {
                 </span>
               </div>
             ))}
+
+            {/* Shows feedback while the AI is generating a reply. */}
+            {isLoading && (
+              <div className="ai-message-row bot-row">
+                <span className="ai-message-bubble bot-bubble">
+                  Thinking...
+                </span>
+              </div>
+            )}
+
             <div ref={chatEndRef} />
           </div>
 
@@ -175,14 +154,18 @@ const AiAssistant = () => {
               onKeyDown={handleKeyDown}
               placeholder="Ask about projects or skills..."
               className="ai-input-field"
+              disabled={isLoading}
+              maxLength={2000}
+              aria-label="Type your message"
             />
 
             <button
               type="button"
               onClick={handleSend}
               className="ai-send-button"
+              disabled={isLoading || !input.trim()}
             >
-              Send
+              {isLoading ? 'Sending...' : 'Send'}
             </button>
           </div>
         </div>
