@@ -1,10 +1,15 @@
 
 export default async function handler(req, res) {
-  // Accept only POST requests from the chatbot.
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
-  }
+  const allowedOrigin = "https://rudras52.github.io";
 
+  res.setHeader("Access-Control-Allow-Origin", allowedOrigin);
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+    return res.status(204).end();
+  }
+  
   try {
     // Read the Groq API key securely from Vercel.
     const apiKey = process.env.GROQ_API_KEY;
