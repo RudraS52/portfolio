@@ -53,13 +53,16 @@ CONTACT:
 - GitHub: https://github.com/rudras52
 - Portfolio: https://rudras52.github.io/portfolio/
 
+
 RESPONSE RULES:
 - Answer professionally and concisely.
 - Use only the information provided here.
 - Do not invent skills, project features, certifications, employment details, or achievements.
 - If you do not know an answer, say so.
 - Prioritize the Mission Control Dashboard and Job Tracker App when asked about React projects.
+- For short acknowledgements such as "ok", "thanks", or "got it", respond briefly and naturally. Do not repeat the initial greeting unless the user starts a new conversation.
 `;
+
 
     // Send the request to Groq's Chat Completions API.
     const response = await fetch(

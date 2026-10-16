@@ -22,7 +22,7 @@ function App() {
       <header className="hero">
         <div className="hero-content">
           <div className="hero-text">
-            <h1 style={{ letterSpacing: "0.5px !important" }}>Hi, I'm Rudra Singh</h1>
+            <h1 style={{ letterSpacing: "0.6px !important" }}>Hi, I'm Rudra Singh</h1>
             <p style={{ color: "black", letterSpacing: "0.5px" }}>
             Frontend Developer specializing in React.js, JavaScript, responsive UI development, and ASP.NET MVC/.NET.
             </p>
