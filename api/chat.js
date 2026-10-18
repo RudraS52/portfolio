@@ -1,15 +1,36 @@
 
 export default async function handler(req, res) {
-  const allowedOrigin = "https://rudras52.github.io";
+  const allowedOrigins = [
+    "https://rudras52.github.io",
+    "http://localhost:3000",
+  ];
 
-  res.setHeader("Access-Control-Allow-Origin", allowedOrigin);
+ // Get the origin of the website making the API request.
+const origin = req.headers.origin;
+
+ // Tell caches that the response may vary based on the request origin
+res.setHeader("Vary", "Origin");
+
+// Allow the request only if its origin is in our approved list.
+if(allowedOrigins.includes(origin)) {
+  res.setHeader("Access-Control-Allow-Origin", origin);
+}
+
+// Specify the HTTP methods and request headers permitted by CORS.
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
+   // Respond to the browser's CORS preflight request without calling Groq.
   if (req.method === "OPTIONS") {
     return res.status(204).end();
   }
-  
+
+  if (req.method !== "POST") {
+  return res.status(405).json({
+    error: "Method not allowed.",
+  });
+}
+
   try {
     // Read the Groq API key securely from Vercel.
     const apiKey = process.env.GROQ_API_KEY;
@@ -69,6 +90,7 @@ PROJECTS:
 6. Professional experience includes ASP.NET MVC/.NET applications, responsive interfaces, jQuery DataTables, filtering and sorting, and REST API integration.
 
 CONTACT:
+- Contact: +91-9718728189
 - Email: rpsingh.developer@gmail.com
 - LinkedIn: https://www.linkedin.com/in/web-developer-rp-singh/
 - GitHub: https://github.com/rudras52
@@ -107,7 +129,7 @@ RESPONSE RULES:
             { role: "system", content: instructions },
             { role: "user", content: message.trim() },
           ],
-          max_tokens: 400,
+          max_tokens: 800,
           temperature: 0.5,
         }),
       }
