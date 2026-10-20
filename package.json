@@ -1,5 +1,6 @@
 {
-  "homepage": "https://portfolio-jade-nine-36.vercel.app",
+  
+  "homepage": ".",
   "name": "my-portfolio",
   "version": "0.1.0",
   "private": true,
