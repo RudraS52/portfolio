@@ -1,6 +1,9 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import './AIAssistant.css';
+import ReactMarkdown from "react-markdown";
+import { ChevronDown } from "lucide-react";
+
 
 const AiAssistant = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -52,8 +55,14 @@ const AiAssistant = () => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ message: currentInput })
-      });
+        body: JSON.stringify({
+  message: currentInput,
+  history: messages.map((msg) => ({
+    role: msg.sender === 'bot' ? 'assistant' : 'user',
+    content: msg.text
+  }))
+})
+});
 
       const data = await response.json();
 
@@ -103,50 +112,66 @@ const AiAssistant = () => {
           role="dialog"
           aria-label="Rudra's AI Portfolio Assistant"
         >
-          <div className="ai-chat-header">
-            <h3>Rudra's Assistant</h3>
+<div className="ai-chat-header">
+  <div className="ai-chat-brand">
+    <span
+  className={`ai-orb ${isLoading ? 'is-loading' : ''}`}
+  aria-hidden="true"
+>
+  <span className="ai-orb-cloud ai-orb-cloud-one" />
+  <span className="ai-orb-cloud ai-orb-cloud-two" />
+  <span className="ai-orb-core" />
+</span>
+    <h3>Rudra's AI Assistant</h3>
+  </div>
 
-            <button
-              type="button"
-              className="ai-chat-close"
-              onClick={() => setIsOpen(false)}
-              aria-label="Close chat"
-              title="Close chat"
-            >
-              ×
-            </button>
-          </div>
+  <button
+    type="button"
+    className="ai-chat-close"
+    onClick={() => setIsOpen(false)}
+    aria-label="Minimize chat"
+    title="Minimize chat"
+  >
+    <ChevronDown size={22} />
+  </button>
+</div>
 
-          <div className="ai-chat-messages" aria-live="polite">
-            {messages.map((msg, idx) => (
-              <div
-                key={idx}
-                className={`ai-message-row ${
-                  msg.sender === 'user' ? 'user-row' : 'bot-row'
-                }`}
-              >
-                <span
-                  className={`ai-message-bubble ${
-                    msg.sender === 'user' ? 'user-bubble' : 'bot-bubble'
-                  }`}
-                  style={{ whiteSpace: 'pre-wrap' }}
-                >
-                  {msg.text}
-                </span>
-              </div>
-            ))}
 
-            {/* Shows feedback while the AI is generating a reply. */}
-            {isLoading && (
-              <div className="ai-message-row bot-row">
-                <span className="ai-message-bubble bot-bubble">
-                  Thinking...
-                </span>
-              </div>
-            )}
+<div className="ai-chat-messages" aria-live="polite">
+  {messages.map((msg, idx) => (
+    <div
+      key={idx}
+      className={`ai-message-row ${
+        msg.sender === "user" ? "user-row" : "bot-row"
+      }`}
+    >
+      <div
+        className={`ai-message-bubble ${
+          msg.sender === "user" ? "user-bubble" : "bot-bubble"
+        }`}
+      >
+        {msg.sender === "user" ? (
+          <span style={{ whiteSpace: "pre-wrap" }}>
+            {msg.text}
+          </span>
+        ) : (
+          <ReactMarkdown>{msg.text}</ReactMarkdown>
+        )}
+      </div>
+    </div>
+  ))}
 
-            <div ref={chatEndRef} />
-          </div>
+  {/* Shows feedback while the AI is generating a reply. */}
+  {isLoading && (
+    <div className="ai-message-row bot-row">
+      <span className="ai-message-bubble bot-bubble">
+        Thinking...
+      </span>
+    </div>
+  )}
+
+  <div ref={chatEndRef} />
+</div>
 
           <div className="ai-chat-input-area">
             <input
@@ -172,17 +197,35 @@ const AiAssistant = () => {
           </div>
         </div>
       )}
+<button
+  type="button"
+  className="ai-chat-toggle"
+  onClick={() => setIsOpen(prev => !prev)}
+  aria-label={isOpen ? 'Close assistant' : "Open Rudra's AI Assistant"}
+  aria-expanded={isOpen}
+  title={isOpen ? 'Close assistant' : "Chat with Rudra's AI Assistant"}
+>
+  {isOpen ? (
+  '×'
+) : (
+  <>
+    <span
+      className={`ai-orb ai-orb-launcher ${
+        isLoading ? 'is-loading' : ''
+      }`}
+      aria-hidden="true"
+    >
+      <span className="ai-orb-cloud ai-orb-cloud-one" />
+      <span className="ai-orb-cloud ai-orb-cloud-two" />
+      <span className="ai-orb-core" />
+    </span>
 
-      <button
-        type="button"
-        className="ai-chat-toggle"
-        onClick={() => setIsOpen(prev => !prev)}
-        aria-label={isOpen ? 'Close assistant' : 'Open assistant'}
-        aria-expanded={isOpen}
-        title={isOpen ? 'Close assistant' : "Chat with Rudra's Assistant"}
-      >
-        {isOpen ? '×' : '💬'}
-      </button>
+    <span className="ai-chat-toggle-icon" aria-hidden="true">
+      💬
+    </span>
+  </>
+)}
+</button>
     </div>
   );
 };

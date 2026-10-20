@@ -26,8 +26,8 @@ const Contact = () => {
 
   return (
     <section id="contact" className="contact-section">
-      <h2>📬 Contact Me</h2>
-      <p>If you’re interested in working together or have any questions, feel free to reach out!</p>
+      <h2>Contact Me</h2>
+      <p>If you're interested in working together or have any questions, feel free to reach out!</p>
 
       {submitted && <p className="success-message">Thank you! Your message has been sent.</p>}
 
