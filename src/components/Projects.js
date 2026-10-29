@@ -7,6 +7,7 @@ import project2 from '../assets/project2.jpg';
 import project4 from '../assets/project4.png';
 import project6 from '../assets/project6.jpeg';
 import project7 from '../assets/project7.png';
+import project8 from '../assets/project8.PNG';
 import missionControlDashboard from '../assets/Mission-Control-Dashboard.png';
 import pimco from '../assets/pimco.png';
 import citibank from '../assets/citibank.png';
@@ -68,6 +69,28 @@ const projectList = [
     liveLink: 'https://preservawellness.com',
     codeLink: '',
   },
+
+
+{
+  title: 'Recipe Search App',
+  image: project8,
+  description:
+    'Developed a responsive recipe discovery application using React.js and TheMealDB API. Implemented Firebase Authentication for login and signup, recipe search, debounced autocomplete suggestions, and loading and error states for a smoother user experience.',
+  tech: [
+    'React.js',
+    'JavaScript ES6+',
+    'CSS3',
+    'Firebase Authentication',
+    'REST API',
+    'TheMealDB API',
+    'React Hooks',
+    'Responsive Design',
+  ],
+  liveLink: 'https://rudras52.github.io/recipe-search-app/',
+  codeLink: 'https://github.com/RudraS52/recipe-search-app',
+},
+
+
   {
     title: 'Product Comparison App',
     image: project2,
@@ -85,7 +108,7 @@ const projectList = [
     liveLink: 'https://rudras52.github.io/product-comparison-app/',
     codeLink: 'https://github.com/RudraS52/project-comparison-app',
   },
- 
+
   {
     title: 'PIMCO Asset Management Web Portal',
     image: pimco,
@@ -109,7 +132,7 @@ const projectList = [
     codeLink: '',
     note: 'Client project. Source code and production access are confidential.',
   },
-  
+
   {
     title: 'Maestro Marpai Health TPA',
     image: project6,

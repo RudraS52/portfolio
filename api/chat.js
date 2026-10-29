@@ -1,4 +1,69 @@
 
+
+function convertMarkdownTablesToLists(text) {
+  const lines = text.split("\n");
+  const output = [];
+  let i = 0;
+
+  const getCells = (line) =>
+    line.trim()
+      .replace(/^\|/, "")
+      .replace(/\|$/, "")
+      .split("|")
+      .map((cell) => cell.trim());
+
+  const isSeparator = (line) =>
+    getCells(line).length > 0 &&
+    getCells(line).every((cell) => /^:?-{3,}:?$/.test(cell));
+
+  while (i < lines.length) {
+    const isTable =
+      i + 1 < lines.length &&
+      lines[i].includes("|") &&
+      isSeparator(lines[i + 1]);
+
+    if (!isTable) {
+      output.push(lines[i]);
+      i++;
+      continue;
+    }
+
+    const headers = getCells(lines[i]);
+    i += 2;
+    let itemNumber = 0;
+
+    while (i < lines.length && lines[i].includes("|")) {
+      const cells = getCells(lines[i]);
+
+      if (cells.some(Boolean)) {
+        const titleIndex = headers.findIndex((header) =>
+          /project|name|title/i.test(header)
+        );
+        const mainIndex = titleIndex >= 0 ? titleIndex : 0;
+        const title = cells[mainIndex] || "Item";
+
+        itemNumber++;
+        output.push(`${itemNumber}. **${title}**`);
+
+        headers.forEach((header, index) => {
+          if (index === mainIndex) return;
+
+          const value = cells[index];
+          if (value) {
+            output.push(`   - **${header}:** ${value}`);
+          }
+        });
+
+        output.push("");
+      }
+
+      i++;
+    }
+  }
+
+  return output.join("\n").replace(/\n{3,}/g, "\n\n").trim();
+}
+
 export default async function handler(req, res) {
   const allowedOrigins = [
     "https://rudras52.github.io",
@@ -70,6 +135,20 @@ export default async function handler(req, res) {
     // Portfolio assistant instructions and verified information.
     const instructions = `
 You are the AI Portfolio Assistant for Rudra Singh, a web developer with 8+ years of web development experience.
+
+CHAT RESPONSE FORMATTING — STRICT RULES:
+
+- NEVER use Markdown tables for any response.
+- NEVER output table headers, table separator rows, or pipe-delimited columns.
+- Do not format project lists, skills, experience, or comparisons as tables.
+- For multiple projects, use a numbered list with short paragraphs.
+- Put each project name on its own line in bold.
+- Put the demo link, technologies, and highlights on separate lines.
+- Keep descriptions concise and suitable for a narrow mobile chat bubble.
+- Use standard Markdown links: [Live Demo](https://example.com).
+- If a response starts to become lengthy, summarize the most relevant details instead of creating a table.
+- These rules apply even if previous conversation messages contain tables.
+
 
 ABOUT RUDRA:
 - Name: Rudra Singh.
@@ -345,7 +424,7 @@ When answering:
           model: "openai/gpt-oss-120b",
           messages: [
   { role: "system", content: instructions },
-  ...conversationHistory,
+  ...previousMessages,
   { role: "user", content: message.trim() },
 ],
           max_tokens: 800,
@@ -363,13 +442,29 @@ When answering:
         error: "The AI service could not process your request.",
       });
     }
+let reply =
+  data.choices?.[0]?.message?.content ||
+  "Sorry, I couldn't generate a response.";
 
-    const reply =
-      data.choices?.[0]?.message?.content ||
-      "Sorry, I couldn't generate a response.";
+reply = convertMarkdownTablesToLists(reply);
+return res.status(200).json({ reply });
 
-    return res.status(200).json({ reply });
-  } catch (error) {
+// Remove Markdown table formatting if the AI generates one.
+if (reply.includes("|") && reply.includes("---")) {
+  reply = reply
+    .split("\n")
+    .filter((line) => {
+      const trimmed = line.trim();
+
+      return !(
+        trimmed.startsWith("|") ||
+        /^\|?[\s:|-]+\|?$/.test(trimmed)
+      );
+    })
+    .join("\n");
+}
+  }
+  catch (error) {
     console.error("Chat backend error:", error.message);
 
     return res.status(500).json({

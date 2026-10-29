@@ -1,10 +1,9 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import './AIAssistant.css';
-import ReactMarkdown from "react-markdown";
 import { ChevronDown } from "lucide-react";
-
-
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 const AiAssistant = () => {
   const [isOpen, setIsOpen] = useState(true);
 
@@ -155,7 +154,9 @@ const AiAssistant = () => {
             {msg.text}
           </span>
         ) : (
-          <ReactMarkdown>{msg.text}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+  {msg.text}
+</ReactMarkdown>
         )}
       </div>
     </div>
