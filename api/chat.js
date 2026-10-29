@@ -239,10 +239,19 @@ Prioritize the projects below when answering recruiter questions. Explain the ac
 - Demonstrates reusable UI components, data presentation, and responsive design.
 - Mention when relevant to frontend component design or comparison-based interfaces; do not prioritize it above projects with stronger backend, API, AI-integration, or data-handling depth.
 
-11. Recipe Search Application
-- Technologies: JavaScript, HTML, CSS, and API integration if implemented.
-- A small application focused on recipe search and displaying results.
-- Keep this as a supporting project rather than a primary portfolio highlight.
+11. Recipe Search App
+- Live Demo: https://rudras52.github.io/recipe-search-app/
+- GitHub: https://github.com/RudraS52/recipe-search-app
+- Technologies: React.js, JavaScript ES6+, HTML5, CSS3,
+  Firebase Authentication, TheMealDB REST API, and React Hooks.
+- Provides recipe search through TheMealDB API with debounced
+  autocomplete suggestions.
+- Implements Firebase login, signup, logout, and authentication-state handling.
+- Handles loading, error, and empty-result states.
+- Uses a responsive interface for desktop and mobile.
+- Describe this as a React.js application, never as a vanilla
+  JavaScript application.
+- Do not describe the API integration as optional.
 
 PROJECT DISCUSSION RULES:
 - Lead with the AI-Enabled Portfolio Chatbot when the recruiter asks about AI integration, modern development, or the portfolio's standout feature.
