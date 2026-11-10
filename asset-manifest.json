@@ -1,10 +1,11 @@
 {
   "files": {
     "main.css": "./static/css/main.dc66ccc7.css",
-    "main.js": "./static/js/main.b78bf6f2.js",
+    "main.js": "./static/js/main.9a6ff525.js",
     "static/js/453.2b426ada.chunk.js": "./static/js/453.2b426ada.chunk.js",
     "static/media/citibank.png": "./static/media/citibank.8d842cea3ce3348c5824.png",
     "static/media/pimco.png": "./static/media/pimco.b65d9470c61f0640c765.png",
+    "static/media/project8.PNG": "./static/media/project8.1c6914bcf497bb07a87c.PNG",
     "static/media/certificate2.png": "./static/media/certificate2.97e20900d711effbb6aa.png",
     "static/media/certificate1.png": "./static/media/certificate1.0dde511fea8a27f16071.png",
     "static/media/project2.jpg": "./static/media/project2.923c621d8765e6d86aae.jpg",
@@ -23,11 +24,11 @@
     "static/media/poppins-latin-ext-400-normal.woff2": "./static/media/poppins-latin-ext-400-normal.d7c074a9c34fe9785f69.woff2",
     "index.html": "./index.html",
     "main.dc66ccc7.css.map": "./static/css/main.dc66ccc7.css.map",
-    "main.b78bf6f2.js.map": "./static/js/main.b78bf6f2.js.map",
+    "main.9a6ff525.js.map": "./static/js/main.9a6ff525.js.map",
     "453.2b426ada.chunk.js.map": "./static/js/453.2b426ada.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dc66ccc7.css",
-    "static/js/main.b78bf6f2.js"
+    "static/js/main.9a6ff525.js"
   ]
 }
